@@ -1,133 +1,129 @@
-Welcome to the Hotel Management Microservices project. This application is designed to manage various aspects of a hotel, including booking rooms, adding hotels, and handling user ratings.
-This application provides the following features:
 
-User Service
----------------------------------------------------------------------------------------------------
+# **Hotel Management Microservices Project**
 
-User registration and authentication.
-User can book hotel rooms.
-User can cancel bookings.
-Wallet system to track all transactions for users.
+Welcome to the **Hotel Management Microservices** project!  
+This application is designed to manage various aspects of a hotel, including room bookings, adding hotels, and handling user ratings.  
 
+## **Features**
 
-Hotel Service
----------------------------------------------------------------------------------------------------
+### **User Service**
+- User registration and authentication.  
+- Users can book hotel rooms.  
+- Cancel bookings.  
+- Wallet system to track user transactions.  
 
-Add hotels with details.
-Add rooms to hotels.
-Get hotel details by ID or name.
-Get a list of all available rooms in a hotel.
-Get a list of all booked rooms in a hotel.
+### **Hotel Service**
+- Add hotels with detailed information.  
+- Add rooms to hotels.  
+- Fetch hotel details by ID or name.  
+- List all available or booked rooms in a hotel.  
 
-Booking Service
---------------------------------------------------------------------------------------------------
-Book rooms in hotels.
-Get booking details by booking ID.
-Get a list of all bookings.
+### **Booking Service**
+- Book rooms in hotels.  
+- Fetch booking details by booking ID.  
+- List all bookings.  
 
-Rating Service
--------------------------------------------------------------------------------------------------
+### **Rating Service**
+- Add ratings and reviews for hotels.  
+- Fetch all ratings.  
+- Fetch ratings by user ID or hotel ID.  
 
-Add ratings and reviews for hotels.
-Get all ratings.
-Get ratings by user ID or hotel ID.
+### **Service Registry**
+- Register and discover microservices.  
 
-Service Registry
--------------------------------------------------------------------------------------------------
-Register and discover microservices.
-Configuration Server
-Manage centralized configurations for microservices.
+### **Configuration Server**
+- Manage centralized configurations for microservices.  
 
-API Gateway
--------------------------------------------------------------------------------------------------
-Gateway for accessing microservices.
+### **API Gateway**
+- Gateway for accessing all microservices.  
 
-Tech Stack 
--------------------------------------------------------------------------------------------------
+---
 
-Java
-Spring Boot
-Spring Cloud
-Spring Cloud Eureka
-Spring Cloud Config
-Spring Security
-OAuth 2.0
-Spring Data JPA
-Spring Web
-Spring Data MongoDB
-Spring Data REST
-Spring Cloud Gateway
-Netflix Eureka
-MySQL
-Git
+## **Tech Stack**
 
+- **Programming Language:** Java  
+- **Frameworks:** Spring Boot, Spring Cloud  
+- **Tools:**  
+  - Spring Cloud Eureka  
+  - Spring Cloud Config  
+  - Spring Security & OAuth 2.0  
+  - Spring Data JPA, REST  
+  - Spring Cloud Gateway  
+  - Netflix Eureka  
+  - MySQL  
+- **Version Control:** Git  
 
-Getting Started
---------------------------------------------------------------------------------------------------
+---
 
-To get started with the project, make sure you have the required tools and dependencies installed.
-Eureka Server:
-Eureka Dashboard: http://localhost:8761
-You can check the status of all registered microservices here. It will show which services are up and running and their corresponding instances.
-Instances currently registered with Eureka:
+## **Getting Started**
 
-API-GATEWAY:
-------------------------------------------------------------------------------------------------
+To get started, ensure you have the required tools and dependencies installed.  
 
-Availability Zones: UP (1) - 192.168.1.4:API-GATEWAY:8086
-CONFIG-SERVER:
+### **Eureka Server**  
+**Eureka Dashboard:** [http://localhost:8761](http://localhost:8761)  
+View the status of all registered microservices, including their availability and instances.
 
-Availability Zones: UP (1) - 192.168.1.4:CONFIG-SERVER:8085
-HOTELS-SERVICE:
+### **Instances Registered with Eureka**  
+| **Service**         | **Status** | **Instance URL**                         |  
+|----------------------|------------|------------------------------------------|  
+| **API Gateway**      | UP (1)     | `192.168.1.4:API-GATEWAY:8086`           |  
+| **Config Server**    | UP (1)     | `192.168.1.4:CONFIG-SERVER:8085`         |  
+| **Hotel Service**    | UP (1)     | `192.168.1.4:hotels-service:8082`        |  
+| **Rating Service**   | UP (1)     | `192.168.1.4:rating-service:8083`        |  
+| **User Service**     | UP (1)     | `192.168.1.4:users-service:8081`         |  
 
-Availability Zones: UP (1) - 192.168.1.4:hotels-service:8082
-RATING-SERVICE:
+### **Default URLs**
+- **API Gateway Default URL:** [http://localhost:8086](http://localhost:8086)  
 
-Availability Zones: UP (1) - 192.168.1.4:rating-service:8083
-USERS-SERVICE:
+---
 
-Availability Zones: UP (1) - 192.168.1.4:users-service:8081
-API Gateway Default URL: http://localhost:8086
+## **Routes**
 
-User Service Routes
--------------------------------------------------------------------------------------------------
+### **User Service**
+| **Feature**                     | **Endpoint**                                                                                   |  
+|----------------------------------|-----------------------------------------------------------------------------------------------|  
+| User Login                      | [http://localhost:8086/auth/login](http://localhost:8086/auth/login)                           |  
+| Fetch All Users                 | [http://localhost:8086/users/all](http://localhost:8086/users/all)                             |  
+| User Registration               | [http://localhost:8086/users/register](http://localhost:8086/users/register)                   |  
+| Book a Hotel Room               | [http://localhost:8086/users/addBooking](http://localhost:8086/users/addBooking)               |  
+| Complete a Booking              | [http://localhost:8086/users/completeBooking/{bookingId}](http://localhost:8086/users/completeBooking/{bookingId}) |  
+| Cancel a Booking                | [http://localhost:8086/users/cancelBooking/{bookingId}](http://localhost:8086/users/cancelBooking/{bookingId}) |  
+| Add Wallet Balance              | [http://localhost:8086/users/wallet/addMoney/{email}?amount=00.0](http://localhost:8086/users/wallet/addMoney/{email}?amount=00.0) |  
+| View Wallet Balance             | [http://localhost:8086/users/wallet/getBalance/{email}](http://localhost:8086/users/wallet/getBalance/{email}) |  
+| View Wallet Transactions        | [http://localhost:8086/users/wallet/getTransactions/{email}](http://localhost:8086/users/wallet/getTransactions/{email}) |  
 
-User login: http://localhost:8086/auth/login
-Login on this URL to obtain an access token. You can use this access token to make authenticated requests to other service endpoints.
-Fetch all users: http://localhost:8086/users/all
-User registration: http://localhost:8086/users/register
-User login: http://localhost:8086/users/login
-Book a hotel room: http://localhost:8086/users/addBooking
-Complete a Booking hotel: http://localhost:8086/users/completeBooking/{bookingId}
-Cancel a booking: http://localhost:8086/users/cancelBooking/{bookingId}
-Add wallet Balance transactions: http://localhost:8086/users/wallet/addMoney/{email}?amount=00.0
-View wallet Balance transactions: http://localhost:8086/users/wallet/getBalance/{email}
-View wallet transactions: http://localhost:8086/users/wallet/getTransactions/{email}
+### **Hotel Service**
+| **Feature**                     | **Endpoint**                                                                                   |  
+|----------------------------------|-----------------------------------------------------------------------------------------------|  
+| Fetch All Hotels                | [http://localhost:8086/hotels/all](http://localhost:8086/hotels/all)                           |  
+| Fetch Hotel by ID               | [http://localhost:8086/hotels/{hotelId}](http://localhost:8086/hotels/{hotelId})               |  
+| Add a Hotel                     | [http://localhost:8086/hotels/add](http://localhost:8086/hotels/add)                           |  
+| Add a Room to a Hotel           | [http://localhost:8086/hotels/{hotelId}/rooms/add](http://localhost:8086/hotels/{hotelId}/rooms/add) |  
+| Book a Room in a Hotel          | [http://localhost:8086/hotels/{hotelId}/bookings/add](http://localhost:8086/hotels/{hotelId}/bookings/add) |  
+| Get All Bookings in a Hotel     | [http://localhost:8086/hotels/{hotelId}/bookings/all](http://localhost:8086/hotels/{hotelId}/bookings/all) |  
 
+### **Rating Service**
+| **Feature**                     | **Endpoint**                                                                                   |  
+|----------------------------------|-----------------------------------------------------------------------------------------------|  
+| Fetch All Ratings               | [http://localhost:8086/ratings/all](http://localhost:8086/ratings/all)                         |  
+| Add a Rating                    | [http://localhost:8086/ratings/add](http://localhost:8086/ratings/add)                         |  
+| Fetch Ratings by User ID        | [http://localhost:8086/ratings/user/{userId}](http://localhost:8086/ratings/user/{userId})     |  
+| Fetch Ratings by Hotel ID       | [http://localhost:8086/ratings/hotel/{hotelId}](http://localhost:8086/ratings/hotel/{hotelId}) |  
 
-Hotel Service Routes
-------------------------------------------------------------------------------------------------------
-Fetch all hotels: http://localhost:8086/hotels/all
-Fetch hotel by ID: http://localhost:8086/hotels/{hotelId}
-Add a hotel: http://localhost:8086/hotels/add
-Add a room to a hotel: http://localhost:8086/hotels/{hotelId}/rooms/add
-Book a room in a hotel: http://localhost:8086/hotels/{hotelId}/bookings/add
-Get all bookings in a hotel: http://localhost:8086/hotels/{hotelId}/bookings/all
+---
 
+## **How to Run**
 
-Rating Service Routes
-----------------------------------------------------------------------------------------------------
-Fetch all ratings: http://localhost:8086/ratings/all
-Add a rating: http://localhost:8086/ratings/add
-Fetch ratings by user ID: http://localhost:8086/ratings/user/{userId}
-Fetch ratings by hotel ID: http://localhost:8086/ratings/hotel/{hotelId}
+1. Clone the repository:  
+   ```bash
+   git clone <repository-url>
+   ```
+2. Start the **Eureka Server**:  
+   ```bash
+   mvn spring-boot:run
+   ```
+3. Start all microservices (User, Hotel, Rating, etc.).  
+4. Access the **Eureka Dashboard** at [http://localhost:8761](http://localhost:8761).  
+5. Use the **API Gateway** endpoints for service interaction.
 
-
-.
-.
-.
-.
-.
-.
-.
-
+---
