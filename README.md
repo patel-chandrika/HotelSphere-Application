@@ -111,19 +111,11 @@ View the status of all registered microservices, including their availability an
 | Fetch Ratings by Hotel ID       | [http://localhost:8086/ratings/hotel/{hotelId}](http://localhost:8086/ratings/hotel/{hotelId}) |  
 
 ---
-
-## **How to Run**
-
-1. Clone the repository:  
-   ```bash
-   git clone <repository-url>
-   ```
-2. Start the **Eureka Server**:  
-   ```bash
-   mvn spring-boot:run
-   ```
-3. Start all microservices (User, Hotel, Rating, etc.).  
-4. Access the **Eureka Dashboard** at [http://localhost:8761](http://localhost:8761).  
+ess the **Eureka Dashboard** at [http://localhost:8761](http://localhost:8761).  
 5. Use the **API Gateway** endpoints for service interaction.
 
 ---
+.
+.
+.
+.
